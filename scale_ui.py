@@ -57,4 +57,9 @@ with st.form("scaling_form"):
             json.dump(final_output, f, indent=4)
 
         st.success(f"✅ All data recorded and saved as `{filename}`")
-        st.download_button("⬇️ Download JSON", data=json.dumps(final_output, indent=4), file_name=filename, mime="application/json")
+        st.download_button(
+            "⬇️ Download JSON",
+            data=json.dumps(final_output, indent=4).encode("utf-8"),
+            file_name=filename,
+            mime="application/json"
+        )
